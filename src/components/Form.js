@@ -10,6 +10,8 @@ const Form = () => {
     symptom: '',
   });
 
+  const [error, setError] = useState(false);
+
   const handleChange = e => {
     setDate({
       ...date,
@@ -19,10 +21,26 @@ const Form = () => {
 
   const { pet, owner, day, hour, symptom } = date;
 
+  const submitDate = e => {
+    e.preventDefault();
+
+    if (pet.trim() === '' || owner.trim() === '' || day.trim() === '' || 
+    hour.trim() === '' || symptom.trim() === '') {
+      setError(true);
+      return;  
+    }
+
+  }
+
   return (
     <Fragment>
       <h2>new date</h2>
-      <form>
+
+      { error ? <p className="alert-error">you must fill fields</p> : null }
+
+      <form
+        onSubmit= { submitDate }
+      >
         <label>Pet name</label>
         <input
           type="text" 
@@ -68,6 +86,7 @@ const Form = () => {
         <button
           type="submit"
           className="u-full-width button-primary"
+
         >Add Date</button>
       </form>
     </Fragment>
