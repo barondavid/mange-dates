@@ -21,7 +21,7 @@ const Form = () => {
 
   return (
     <Fragment>
-      <h2>create date</h2>
+      <h2>new date</h2>
       <form>
         <label>Pet name</label>
         <input
@@ -30,6 +30,7 @@ const Form = () => {
           className="u-full-width"
           placeholder="Pet name"
           onChange= { handleChange }
+          value= { pet }
         />
         <label>Owner</label>
         <input
@@ -38,6 +39,7 @@ const Form = () => {
           className="u-full-width"
           placeholder="Owner name"
           onChange= { handleChange }
+          value= { owner }
         />
         <label>Date</label>
         <input
@@ -45,19 +47,22 @@ const Form = () => {
           name="day"
           className="u-full-width"
           onChange= { handleChange }
+          value={ day }
         />
         <label>Hour</label>
         <input
           type="time" 
-          name="time"
+          name="hour"
           className="u-full-width"
           onChange= { handleChange }
+          value={ hour }
         />
         <label>Symptom</label>
         <textarea
           className="u-full-width"
           name="symptom"
           onChange= { handleChange }
+          value={ symptom }
         >
         </textarea>
         <button
