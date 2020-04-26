@@ -13,6 +13,13 @@ const App = () => {
     ]);
   }
 
+  const title = dates.length === 0 ? 'No Dates' :'Manage Dates';
+
+  const deleteDate = id => {
+    const newDates = dates.filter(date => date.id !== id );
+    setDates(newDates);
+  }
+
   return (
     <Fragment>
       <h1>administrador de pacientes</h1>
@@ -25,11 +32,12 @@ const App = () => {
             />
           </div>
           <div className="one-half column">
-            <h2>Manage dates</h2>
+            <h2>{ title }</h2>
             { dates.map(date => (
               <Date 
                 key={ date.id }
                 date={ date }
+                deleteDate={ deleteDate }
               />
             ))}
           </div>
