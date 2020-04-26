@@ -37,6 +37,14 @@ const Form = ({createDate}) => {
 
     createDate(date);
 
+    setDate({
+      pet: '',
+      owner: '',
+      day: '',
+      hour: '',
+      symptom: '',
+    });
+
 
   }
 
