@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 const Form = ({createDate}) => {
 
@@ -108,4 +109,9 @@ const Form = ({createDate}) => {
     </Fragment>
   );
 }
+
+Form.propTypes = {
+  createDate: PropTypes.func.isRequired
+};
+
 export default Form;

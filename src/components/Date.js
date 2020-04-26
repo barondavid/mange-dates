@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Date = ({date, deleteDate}) => (
   <div className="date">
@@ -14,5 +15,10 @@ const Date = ({date, deleteDate}) => (
     >Remove &times;</button>
   </div>
 );
+
+Date.propTypes = {
+  date: PropTypes.object.isRequired,
+  deleteDate: PropTypes.func.isRequired
+}
 
 export default Date;

@@ -1,10 +1,25 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Form from './components/Form'
 import Date from './components/Date'
 
 const App = () => {
 
+  let initialDates = JSON.parse(localStorage.getItem('dates'));
+  if (!initialDates) {
+    initialDates = [];
+  }
+
   const [dates, setDates] = useState([]);
+
+  useEffect( () => {
+    let initialDates = JSON.parse(localStorage.getItem('dates'));
+
+    if (initialDates) {
+      localStorage.setItem('dates', JSON.stringify(dates));
+    } else {
+      localStorage.setItem('dates', []);
+    }
+  }, [dates]);
 
   const createDate = date => {
     setDates([
@@ -22,7 +37,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <h1>administrador de pacientes</h1>
+      <h1>Manage Dates</h1>
 
       <div className="container">
         <div className="row">
