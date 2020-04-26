@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid'
 
-const Form = () => {
+const Form = ({createDate}) => {
 
   const [date, setDate] = useState({
     pet: '',
@@ -29,6 +30,13 @@ const Form = () => {
       setError(true);
       return;  
     }
+
+    setError(false);
+
+    date.id = uuidv4();
+
+    createDate(date);
+
 
   }
 
